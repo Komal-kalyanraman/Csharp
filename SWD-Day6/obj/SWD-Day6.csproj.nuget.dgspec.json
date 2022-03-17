@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\koy5cob\\Desktop\\PE-SWD\\SWD-Day6-C#\\SWD-Day6\\SWD-Day6.csproj": {}
+    "/home/phoenix/Desktop/Csharp/SWD-Day6/SWD-Day6.csproj": {}
   },
   "projects": {
-    "C:\\Users\\koy5cob\\Desktop\\PE-SWD\\SWD-Day6-C#\\SWD-Day6\\SWD-Day6.csproj": {
+    "/home/phoenix/Desktop/Csharp/SWD-Day6/SWD-Day6.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\koy5cob\\Desktop\\PE-SWD\\SWD-Day6-C#\\SWD-Day6\\SWD-Day6.csproj",
+        "projectUniqueName": "/home/phoenix/Desktop/Csharp/SWD-Day6/SWD-Day6.csproj",
         "projectName": "SWD-Day6",
-        "projectPath": "C:\\Users\\koy5cob\\Desktop\\PE-SWD\\SWD-Day6-C#\\SWD-Day6\\SWD-Day6.csproj",
-        "packagesPath": "C:\\Users\\koy5cob\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\koy5cob\\Desktop\\PE-SWD\\SWD-Day6-C#\\SWD-Day6\\obj\\",
+        "projectPath": "/home/phoenix/Desktop/Csharp/SWD-Day6/SWD-Day6.csproj",
+        "packagesPath": "/home/phoenix/.nuget/packages/",
+        "outputPath": "/home/phoenix/Desktop/Csharp/SWD-Day6/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\koy5cob\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/phoenix/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -69,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
         }
       }
     }
