@@ -16,6 +16,7 @@ namespace SWD_Day6
             return TimeNow;
         }
 
+        // https://json2csharp.com/json-to-csharp
         public class Parameters
         {
             public string type { get; set; }
