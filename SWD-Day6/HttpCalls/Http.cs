@@ -10,23 +10,15 @@ namespace SWD_Day6
     {
         private static readonly HttpClient client = new HttpClient();
         public string retval = "";        
-        DataCollection SensorData = new DataCollection();
-
+        
         public async Task<string> Get(string url)
         {
             return await Call("GET", url, new Dictionary<string, string>());
         }
 
-        public async Task<string> Post(string url, Dictionary<string, string> data)
-        {
-            return await Call("POST", url, data);
-        }
-
         public async Task<string> Put(string url, Dictionary<string, string> data)
         {
             string full_URL = url + "control"; 
-            //string key = ToString().data[0];
-            //Console.WriteLine("key: value", data.Keys, data.Values);
             return await Call("PUT", full_URL, data);
         }
 
@@ -37,17 +29,10 @@ namespace SWD_Day6
 
             switch (method)
             {
-                case "POST":
-                    response = await client.PostAsync(url, content);
-                    retval = await response.Content.ReadAsStringAsync();
-                    break;
-
-
                 case "GET":
-                    SensorData.SensorValue = await client.GetStringAsync(url);
-                    Console.WriteLine(SensorData.SensorValue);
+                    retval = await client.GetStringAsync(url);
+                    //ExtractJsonData(retval);
                     break;
-
 
                 case "PUT":
                     response = await client.PutAsync(url, content);
