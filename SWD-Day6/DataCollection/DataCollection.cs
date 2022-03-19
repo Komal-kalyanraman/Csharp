@@ -8,11 +8,10 @@ namespace SWD_Day6
     {
         Http api = new Http();
         string base_URL = "http://192.168.1.10:8080/shapi/";
-        string TimeNow = DateTime.Now.ToString("HH");
         
         public string CurrentTime()
         {
-            //Console.WriteLine(TimeNow);
+            string TimeNow = DateTime.Now.ToString("HH");
             return TimeNow;
         }
 
@@ -23,6 +22,7 @@ namespace SWD_Day6
             public string state { get; set; }
             public double power { get; set; }
             public string id { get; set; }
+            public bool motionDetected { get; set; }
         }
 
         public async Task<string> SocketEnergy()
@@ -58,6 +58,18 @@ namespace SWD_Day6
                 string ButtonState = myDeserializedClass.state.ToString();
                 return ButtonState;
             }            
+        }
+
+        public async Task<string> Motion()
+        {
+            string JsonData = await api.Get(base_URL+"state?identifier=Motion");
+            string JsonDataNew = JsonData.Substring(1, JsonData.Length - 2);
+            int startIndex = 63;
+            int endIndex = JsonDataNew.Length - startIndex;
+            string MotionJson = JsonDataNew.Substring(startIndex, endIndex);
+            Parameters myDeserializedClass = JsonConvert.DeserializeObject<Parameters>(MotionJson);
+            string Motion = myDeserializedClass.motionDetected.ToString();
+            return Motion;
         }
     }
 }

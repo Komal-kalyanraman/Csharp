@@ -10,6 +10,7 @@ namespace SWD_Day6
             {"address", "Socket"},
             {"state", "ON"}
         };
+        
         // Switch OFF the light
         public Dictionary<string, string> SwitchOffSocket = new Dictionary<string, string>
         {

@@ -12,5 +12,8 @@ Console.WriteLine(SocketState);
 string ButtonState = await sensorData.ButtonState();
 Console.WriteLine(ButtonState);
 
+string Motion = await sensorData.Motion();
+Console.WriteLine(Motion);
+
 string CurrentTime = sensorData.CurrentTime();
 Console.WriteLine(CurrentTime);
