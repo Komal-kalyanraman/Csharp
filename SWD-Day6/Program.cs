@@ -1,19 +1,33 @@
 ﻿using SWD_Day6;
 using System.Collections.Generic;
 
-DataCollection sensorData = new DataCollection();
+// InputExtractor inputJson = new InputExtractor();
 
-string energy = await sensorData.SocketEnergy();
-Console.WriteLine(energy);
+// string result = inputJson.UseCase();
+// Console.WriteLine(result);
 
-string SocketState = await sensorData.SocketState();
-Console.WriteLine(SocketState);
+UseCaseRouter Finder = new UseCaseRouter();
 
-string ButtonState = await sensorData.ButtonState();
-Console.WriteLine(ButtonState);
+string result = Finder.UseCaseExtractor();
+Console.WriteLine(result);
 
-string Motion = await sensorData.Motion();
-Console.WriteLine(Motion);
+// InputExtractor input = new InputExtractor();
 
-string CurrentTime = sensorData.CurrentTime();
-Console.WriteLine(CurrentTime);
+// input.ReadFile();
+
+// DataCollection sensorData = new DataCollection();
+
+// string energy = await sensorData.SocketEnergy();
+// Console.WriteLine(energy);
+
+// string SocketState = await sensorData.SocketState();
+// Console.WriteLine(SocketState);
+
+// string ButtonState = await sensorData.ButtonState();
+// Console.WriteLine(ButtonState);
+
+// string Motion = await sensorData.Motion();
+// Console.WriteLine(Motion);
+
+// string CurrentTime = sensorData.CurrentTime();
+// Console.WriteLine(CurrentTime);

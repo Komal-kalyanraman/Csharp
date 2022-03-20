@@ -27,8 +27,7 @@ namespace SWD_Day6
 
         public async Task<string> SocketEnergy()
         {
-            string JsonData = await api.Get(base_URL+"state?identifier=SocketEnergy");
-            string JsonDataNew = JsonData.Substring(1, JsonData.Length - 2);
+            string JsonDataNew = await ExtractJson("state?identifier=SocketEnergy");
             Parameters myDeserializedClass = JsonConvert.DeserializeObject<Parameters>(JsonDataNew);
             string SocketEnergy = myDeserializedClass.power.ToString() + " watt";
             return SocketEnergy;
@@ -36,8 +35,7 @@ namespace SWD_Day6
 
         public async Task<string> SocketState()
         {
-            string JsonData = await api.Get(base_URL+"state?identifier=Socket");
-            string JsonDataNew = JsonData.Substring(1, JsonData.Length - 2);
+            string JsonDataNew = await ExtractJson("state?identifier=Socket");
             Parameters myDeserializedClass = JsonConvert.DeserializeObject<Parameters>(JsonDataNew);
             string SocketState = myDeserializedClass.state.ToString();
             return SocketState;
@@ -45,8 +43,7 @@ namespace SWD_Day6
 
         public async Task<string> ButtonState()
         {
-            string JsonData = await api.Get(base_URL+"state?identifier=Button");
-            string JsonDataNew = JsonData.Substring(1, JsonData.Length - 2);
+            string JsonDataNew = await ExtractJson("state?identifier=Button");
             
             if(JsonDataNew.Length == 259)
             {
@@ -62,8 +59,7 @@ namespace SWD_Day6
 
         public async Task<string> Motion()
         {
-            string JsonData = await api.Get(base_URL+"state?identifier=Motion");
-            string JsonDataNew = JsonData.Substring(1, JsonData.Length - 2);
+            string JsonDataNew = await ExtractJson("state?identifier=Motion");
             int startIndex = 63;
             int endIndex = JsonDataNew.Length - startIndex;
             string MotionJson = JsonDataNew.Substring(startIndex, endIndex);
@@ -71,5 +67,13 @@ namespace SWD_Day6
             string Motion = myDeserializedClass.motionDetected.ToString();
             return Motion;
         }
+
+        public async Task<string> ExtractJson(string sensor_url)
+        {
+            string JsonData = await api.Get(base_URL + sensor_url);
+            string JsonDataNew = JsonData.Substring(1, JsonData.Length - 2);
+            return JsonDataNew;
+        }
+
     }
 }
