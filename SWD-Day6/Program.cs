@@ -6,10 +6,25 @@ using System.Collections.Generic;
 // string result = inputJson.UseCase();
 // Console.WriteLine(result);
 
-UseCaseRouter Finder = new UseCaseRouter();
+InputExtractor Finder = new InputExtractor();
+TimeBasedMonitoring TBM = new TimeBasedMonitoring();
 
-string result = Finder.UseCaseExtractor();
+
+Finder.ReadFile();
+string result = Finder.UseCase();
 Console.WriteLine(result);
+
+switch (result)
+{
+    case "TimeBasedMonitoring":
+        await TBM.CheckUseCase();
+        //ExtractJsonData(retval);
+        break;
+
+    default:
+        Console.WriteLine("ERROR");
+        break;
+}
 
 // InputExtractor input = new InputExtractor();
 

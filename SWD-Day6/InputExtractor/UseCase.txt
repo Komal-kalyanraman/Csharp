@@ -1,1 +1,1 @@
-{"UseCase":"TimeBasedMonitoring", "SocketEnergyThreshold":null, "StartTime":1, "EndTime":20}
+{"UseCase":"TimeBasedMonitoring", "SocketEnergyThreshold":0, "StartTime":1, "EndTime":20}

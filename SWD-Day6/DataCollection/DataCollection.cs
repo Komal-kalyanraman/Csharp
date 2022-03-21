@@ -8,7 +8,7 @@ namespace SWD_Day6
     {
         Http api = new Http();
         string base_URL = "http://192.168.1.10:8080/shapi/";
-        
+
         public string CurrentTime()
         {
             string TimeNow = DateTime.Now.ToString("HH");

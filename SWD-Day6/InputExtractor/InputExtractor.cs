@@ -6,7 +6,7 @@ namespace SWD_Day6
     public class InputExtractor
     {
         string path = "/home/phoenix/Desktop/Csharp/SWD-Day6/InputExtractor/UseCase.txt";
-        Dictionary<string, string> InputData = new Dictionary<string, string>();
+        public Dictionary<string, string> InputData = new Dictionary<string, string>();
         
         public class Parameters
         {
@@ -27,14 +27,8 @@ namespace SWD_Day6
                 InputData.Add("SocketEnergyThreshold", myDeserializedClass.SocketEnergyThreshold.ToString());
                 InputData.Add("StartTime", myDeserializedClass.StartTime.ToString());
                 InputData.Add("EndTime", myDeserializedClass.EndTime.ToString());
-
-                // foreach(string s in readText)
-                // {
-                //     // Printing the string array containing
-                //     // all lines of the file.
-                //     Console.WriteLine(s);
-                // }
             }
+
             catch (Exception e)
             {
                 Console.WriteLine("{0} Exception caught.", e);
@@ -45,6 +39,27 @@ namespace SWD_Day6
         {
             string result;
             InputData.TryGetValue("UseCase", out result);
+            return result;
+        }
+
+        public string SocketEnergyThreshold()
+        {
+            string result;
+            InputData.TryGetValue("SocketEnergyThreshold", out result);
+            return result;
+        }
+
+        public string StartTime()
+        {
+            string result;
+            InputData.TryGetValue("StartTime", out result);
+            return result;
+        }
+
+        public string EndTime()
+        {
+            string result;
+            InputData.TryGetValue("EndTime", out result);
             return result;
         }
     }
