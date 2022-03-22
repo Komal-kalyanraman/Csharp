@@ -7,6 +7,7 @@ namespace SWD_Day6
     public class DataCollection
     {
         Http api = new Http();
+        JsonObject obj = new JsonObject();
         string base_URL = "http://192.168.1.10:8080/shapi/";
 
         public string CurrentTime()
@@ -73,6 +74,20 @@ namespace SWD_Day6
             string JsonData = await api.Get(base_URL + sensor_url);
             string JsonDataNew = JsonData.Substring(1, JsonData.Length - 2);
             return JsonDataNew;
+        }
+
+        public async Task<string> TurnOnSocket()
+        {
+            string result = await api.Put(base_URL, obj.SwitchOnSocket);
+            result = "Socket Turned ON";
+            return result;
+        }
+
+        public async Task<string> TurnOffSocket()
+        {
+            string result = await api.Put(base_URL, obj.SwitchOffSocket);
+            result = "Socket Turned OFF";
+            return result;
         }
 
     }

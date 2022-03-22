@@ -9,6 +9,9 @@ namespace SWD_Day6
 
         public async Task<string> CheckUseCase()
         {
+            await Task.Delay(1);
+            
+            string result;
             inputJson.ReadFile();
 
             string StartTime;
@@ -26,11 +29,14 @@ namespace SWD_Day6
 
             if( (CurrentTime > StartTimeInt) && (CurrentTime < EndTimeInt))
             {
-                Console.WriteLine("yes");
+                result = "Socket is Switched ON during wrong time.";
+            }
+            else
+            {
+                result = "Nothing suspicious happening";
             }
 
-            return null;
-            
+            return result;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace SWD_Day6
             public object SocketEnergyThreshold { get; set; }
             public object StartTime { get; set; }
             public object EndTime { get; set; }
+            public object Timer { get; set; }
         }
 
         public void ReadFile()
@@ -27,6 +28,7 @@ namespace SWD_Day6
                 InputData.Add("SocketEnergyThreshold", myDeserializedClass.SocketEnergyThreshold.ToString());
                 InputData.Add("StartTime", myDeserializedClass.StartTime.ToString());
                 InputData.Add("EndTime", myDeserializedClass.EndTime.ToString());
+                InputData.Add("Timer", myDeserializedClass.Timer.ToString());
             }
 
             catch (Exception e)
@@ -60,6 +62,13 @@ namespace SWD_Day6
         {
             string result;
             InputData.TryGetValue("EndTime", out result);
+            return result;
+        }
+
+        public string Timer()
+        {
+            string result;
+            InputData.TryGetValue("Timer", out result);
             return result;
         }
     }

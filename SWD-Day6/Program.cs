@@ -8,17 +8,24 @@ using System.Collections.Generic;
 
 InputExtractor Finder = new InputExtractor();
 TimeBasedMonitoring TBM = new TimeBasedMonitoring();
-
+SocketEnergyMonitoring SEM = new SocketEnergyMonitoring();
 
 Finder.ReadFile();
 string result = Finder.UseCase();
-Console.WriteLine(result);
+Console.WriteLine("Selected usecase = " + result);
+
+//string notification;
 
 switch (result)
 {
     case "TimeBasedMonitoring":
-        await TBM.CheckUseCase();
-        //ExtractJsonData(retval);
+        string TBM_notification = await TBM.CheckUseCase();
+        Console.WriteLine(TBM_notification);
+        break;
+    
+    case "SocketEnergyMonitoring":
+        string SEM_notification = await SEM.CheckUseCase();
+        Console.WriteLine(SEM_notification);
         break;
 
     default:
