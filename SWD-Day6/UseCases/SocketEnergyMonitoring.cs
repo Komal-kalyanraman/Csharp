@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SWD_Day6
 {
@@ -6,10 +7,10 @@ namespace SWD_Day6
     {
         DataCollection sensorData = new DataCollection();
         InputExtractor inputJson = new InputExtractor();
+        private string result;
 
         public async Task<string> CheckUseCase()
         {
-            string result;
             inputJson.ReadFile();
 
             string SocketEnergyThreshold;
@@ -21,8 +22,22 @@ namespace SWD_Day6
             inputJson.InputData.TryGetValue("Timer", out Timer);
             int TimerInt = 0;
             Int32.TryParse(Timer, out TimerInt);
+
+            string SocketEnergy;
+            SocketEnergy = await sensorData.SocketEnergy();
+            int SocketEnergyInt = 0;
+            Int32.TryParse(SocketEnergy, out SocketEnergyInt);
             
-            result = await sensorData.TurnOnSocket();            
+            if(SocketEnergyInt > SocketEnergyThresholdInt)
+            {
+                result = await sensorData.TurnOffSocket();
+                await Task.Delay(TimerInt*60*1000);
+            }
+            else
+            {
+                result = "Socket power below threshold";
+            }
+            
             return result;
         }
     }

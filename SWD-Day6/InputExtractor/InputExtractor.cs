@@ -7,6 +7,7 @@ namespace SWD_Day6
     {
         string path = "/home/phoenix/Desktop/Csharp/SWD-Day6/InputExtractor/UseCase.txt";
         public Dictionary<string, string> InputData = new Dictionary<string, string>();
+        private string result;
         
         public class Parameters
         {
@@ -39,35 +40,30 @@ namespace SWD_Day6
 
         public string UseCase()
         {
-            string result;
             InputData.TryGetValue("UseCase", out result);
             return result;
         }
 
         public string SocketEnergyThreshold()
         {
-            string result;
             InputData.TryGetValue("SocketEnergyThreshold", out result);
             return result;
         }
 
         public string StartTime()
         {
-            string result;
             InputData.TryGetValue("StartTime", out result);
             return result;
         }
 
         public string EndTime()
         {
-            string result;
             InputData.TryGetValue("EndTime", out result);
             return result;
         }
 
         public string Timer()
         {
-            string result;
             InputData.TryGetValue("Timer", out result);
             return result;
         }

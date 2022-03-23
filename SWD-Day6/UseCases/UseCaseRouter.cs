@@ -7,11 +7,12 @@ namespace SWD_Day6
         InputExtractor inputJson = new InputExtractor();
 
         DataCollection sensorData = new DataCollection();
+        private string result;
 
         public string UseCaseExtractor()
         {
             inputJson.ReadFile();
-            string result = inputJson.UseCase();
+            result = inputJson.UseCase();
             return result;
         }
     }

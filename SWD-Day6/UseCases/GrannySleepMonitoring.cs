@@ -1,17 +1,17 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SWD_Day6
 {
-    public class TimeBasedMonitoring
+    public class GrannySleepMonitoring
     {
         DataCollection sensorData = new DataCollection();
         InputExtractor inputJson = new InputExtractor();
+
         private string result;
 
         public async Task<string> CheckUseCase()
         {
-            await Task.Delay(1);
-            
             inputJson.ReadFile();
 
             string StartTime;
@@ -24,19 +24,29 @@ namespace SWD_Day6
             int EndTimeInt = 0;
             Int32.TryParse(EndTime, out EndTimeInt);
 
-            string SocketState;
-            SocketState = await sensorData.SocketState();
-
             int CurrentTime = 0;
             Int32.TryParse(sensorData.CurrentTime(), out CurrentTime);
 
-            if( (CurrentTime > StartTimeInt) && (CurrentTime < EndTimeInt) && (SocketState == "ON"))
+            string ButtonState = await sensorData.ButtonState();
+            string SocketState = await sensorData.SocketState();
+
+            if(ButtonState == "PRESSED")
             {
-                result = "Socket is Switched ON during wrong time.";
+                if( (CurrentTime > StartTimeInt) && (CurrentTime < EndTimeInt))
+                {
+                    result = "Granny is sleeping on bed";
+                }
             }
             else
             {
-                result = "Nothing suspicious happening";
+                if( (CurrentTime > StartTimeInt) && (CurrentTime < EndTimeInt))
+                {
+                    result = "Granny is not on bed";
+                }
+                else
+                {
+                    result = "Granny sleep time is over. She is out of bed";
+                }
             }
 
             return result;
