@@ -11,7 +11,6 @@ namespace SWD_Day6
         public async Task<string> CheckUseCase()
         {
             await Task.Delay(1);
-
             return result;
         }
     }
