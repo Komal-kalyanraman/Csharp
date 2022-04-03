@@ -2,17 +2,16 @@ using System.Collections.Generic;
 
 namespace SWD_Day6
 {
-    public class UseCaseRouter
+    public class SampleUseCase
     {
-        InputExtractor inputJson = new InputExtractor();
-
         DataCollection sensorData = new DataCollection();
+        InputExtractor inputJson = new InputExtractor();
         private string result;
 
-        public string UseCaseExtractor()
+        public async Task<string> CheckUseCase()
         {
-            inputJson.ReadFile();
-            result = inputJson.UseCase();
+            await Task.Delay(1);
+
             return result;
         }
     }
