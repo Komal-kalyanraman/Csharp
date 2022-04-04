@@ -4,8 +4,8 @@ namespace SWD_Day6
 {
     public class SampleUseCase
     {
-        InputExtractor inputJson = new InputExtractor();
         DataCollection sensorData = new DataCollection();
+        InputExtractor inputJson = new InputExtractor();
         private string result;
 
         public async Task<string> CheckUseCase()
