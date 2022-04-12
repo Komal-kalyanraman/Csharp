@@ -8,10 +8,8 @@ namespace SWD_Day6
         InputExtractor inputJson = new InputExtractor();
         private string result;
 
-        public async Task<string> CheckUseCase()
-        {
-            await Task.Delay(1);
-            
+        public string CheckUseCase()
+        {            
             inputJson.ReadFile();
 
             string StartTime;
@@ -25,7 +23,7 @@ namespace SWD_Day6
             Int32.TryParse(EndTime, out EndTimeInt);
 
             string SocketState;
-            SocketState = await sensorData.SocketState();
+            SocketState = sensorData.SocketState();
 
             int CurrentTime = 0;
             Int32.TryParse(sensorData.CurrentTime(), out CurrentTime);

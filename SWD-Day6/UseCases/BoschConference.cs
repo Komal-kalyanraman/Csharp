@@ -11,7 +11,7 @@ namespace SWD_Day6
         private string result;
         private string response;
 
-        public async Task<string> CheckUseCase()
+        public string CheckUseCase()
         {
             inputJson.ReadFile();
 
@@ -22,11 +22,11 @@ namespace SWD_Day6
 
             for(int i=0; i<5; i++)
             {
-                response = await sensorData.TurnOnSocket();
-                await Task.Delay(TimerInt*100);
+                response = sensorData.TurnOnSocket();
+                Task.Delay(TimerInt*100).Wait();
 
-                response = await sensorData.TurnOffSocket();
-                await Task.Delay(TimerInt*100);
+                response = sensorData.TurnOffSocket();
+                Task.Delay(TimerInt*100).Wait();
             }
 
             result = "Thanks for Watching";

@@ -26,25 +26,25 @@ namespace SWD_Day6
             public bool motionDetected { get; set; }
         }
 
-        public async Task<string> SocketEnergy()
+        public string SocketEnergy()
         {
-            string JsonDataNew = await ExtractJson("state?identifier=SocketEnergy");
+            string JsonDataNew = ExtractJson("state?identifier=SocketEnergy");
             Parameters myDeserializedClass = JsonConvert.DeserializeObject<Parameters>(JsonDataNew);
             string SocketEnergy = myDeserializedClass.power.ToString() + " watt";
             return SocketEnergy;
         }
 
-        public async Task<string> SocketState()
+        public string SocketState()
         {
-            string JsonDataNew = await ExtractJson("state?identifier=Socket");
+            string JsonDataNew = ExtractJson("state?identifier=Socket");
             Parameters myDeserializedClass = JsonConvert.DeserializeObject<Parameters>(JsonDataNew);
             string SocketState = myDeserializedClass.state.ToString();
             return SocketState;
         }
 
-        public async Task<string> ButtonState()
+        public string ButtonState()
         {
-            string JsonDataNew = await ExtractJson("state?identifier=Button");
+            string JsonDataNew = ExtractJson("state?identifier=Button");
             
             if(JsonDataNew.Length == 259)
             {
@@ -58,9 +58,9 @@ namespace SWD_Day6
             }            
         }
 
-        public async Task<string> Motion()
+        public string Motion()
         {
-            string JsonDataNew = await ExtractJson("state?identifier=Motion");
+            string JsonDataNew = ExtractJson("state?identifier=Motion");
             int startIndex = 63;
             int endIndex = JsonDataNew.Length - startIndex;
             string MotionJson = JsonDataNew.Substring(startIndex, endIndex);
@@ -69,23 +69,23 @@ namespace SWD_Day6
             return Motion;
         }
 
-        public async Task<string> ExtractJson(string sensor_url)
+        public string ExtractJson(string sensor_url)
         {
-            string JsonData = await api.Get(base_URL + sensor_url);
+            string JsonData = api.Get(base_URL + sensor_url).Result;
             string JsonDataNew = JsonData.Substring(1, JsonData.Length - 2);
             return JsonDataNew;
         }
 
-        public async Task<string> TurnOnSocket()
+        public string TurnOnSocket()
         {
-            string result = await api.Put(base_URL, obj.SwitchOnSocket);
+            string result = api.Put(base_URL, obj.SwitchOnSocket).Result;
             result = "Socket Turned ON";
             return result;
         }
 
-        public async Task<string> TurnOffSocket()
+        public string TurnOffSocket()
         {
-            string result = await api.Put(base_URL, obj.SwitchOffSocket);
+            string result = api.Put(base_URL, obj.SwitchOffSocket).Result;
             result = "Socket Turned OFF";
             return result;
         }

@@ -18,22 +18,22 @@ string notification;
 switch (result)
 {
     case "TimeBasedMonitoring":
-        notification = await TBM.CheckUseCase();
+        notification = TBM.CheckUseCase();
         Alert.Notification(notification);
         break;
     
     case "SocketEnergyMonitoring":
-        notification = await SEM.CheckUseCase();
+        notification = SEM.CheckUseCase();
         Alert.Notification(notification);
         break;
 
     case "GrannySleepMonitoring":
-        notification = await GSM.CheckUseCase();
+        notification = GSM.CheckUseCase();
         Alert.Notification(notification);
         break;
     
     case "BoschConference":
-        notification = await BOCSE.CheckUseCase();
+        notification = BOCSE.CheckUseCase();
         Alert.Notification(notification);
         break;
 

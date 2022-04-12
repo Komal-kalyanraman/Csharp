@@ -9,7 +9,7 @@ namespace SWD_Day6
         InputExtractor inputJson = new InputExtractor();
         private string result;
 
-        public async Task<string> CheckUseCase()
+        public string CheckUseCase()
         {
             inputJson.ReadFile();
 
@@ -24,14 +24,14 @@ namespace SWD_Day6
             Int32.TryParse(Timer, out TimerInt);
 
             string SocketEnergy;
-            SocketEnergy = await sensorData.SocketEnergy();
+            SocketEnergy = sensorData.SocketEnergy();
             int SocketEnergyInt = 0;
             Int32.TryParse(SocketEnergy, out SocketEnergyInt);
             
             if(SocketEnergyInt > SocketEnergyThresholdInt)
             {
-                result = await sensorData.TurnOffSocket();
-                await Task.Delay(TimerInt*60*1000);
+                result = sensorData.TurnOffSocket();
+                Task.Delay(TimerInt*60*1000).Wait();
             }
             else
             {

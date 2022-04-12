@@ -10,7 +10,7 @@ namespace SWD_Day6
 
         private string result;
 
-        public async Task<string> CheckUseCase()
+        public string CheckUseCase()
         {
             inputJson.ReadFile();
 
@@ -27,8 +27,8 @@ namespace SWD_Day6
             int CurrentTime = 0;
             Int32.TryParse(sensorData.CurrentTime(), out CurrentTime);
 
-            string ButtonState = await sensorData.ButtonState();
-            string SocketState = await sensorData.SocketState();
+            string ButtonState = sensorData.ButtonState();
+            string SocketState = sensorData.SocketState();
 
             if(ButtonState == "PRESSED")
             {
