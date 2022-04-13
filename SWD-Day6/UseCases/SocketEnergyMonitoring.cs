@@ -5,9 +5,14 @@ namespace SWD_Day6
 {
     public class SocketEnergyMonitoring
     {
-        DataCollection sensorData = new DataCollection();
+        ISensorData sensorData;
         InputExtractor inputJson = new InputExtractor();
         private string result;
+
+        public SocketEnergyMonitoring(ISensorData sensorData)
+        {
+            this.sensorData = sensorData;
+        }
 
         public string CheckUseCase()
         {

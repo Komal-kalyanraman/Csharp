@@ -4,9 +4,14 @@ namespace SWD_Day6
 {
     public class TimeBasedMonitoring
     {
-        DataCollection sensorData = new DataCollection();
+        ISensorData sensorData;
         InputExtractor inputJson = new InputExtractor();
         private string result;
+
+        public TimeBasedMonitoring(ISensorData sensorData)
+        {
+            this.sensorData = sensorData;
+        }
 
         public string CheckUseCase()
         {            

@@ -5,11 +5,16 @@ namespace SWD_Day6
 {
     public class BoschConference
     {
-        DataCollection sensorData = new DataCollection();
+        ISensorData sensorData;
         InputExtractor inputJson = new InputExtractor();
 
         private string result;
         private string response;
+
+        public BoschConference(ISensorData sensorData)
+        {
+            this.sensorData = sensorData;
+        }
 
         public string CheckUseCase()
         {

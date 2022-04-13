@@ -5,12 +5,11 @@ namespace SWD_Day6
     public class SampleUseCase
     {
         InputExtractor inputJson = new InputExtractor();
-        DataCollection sensorData = new DataCollection();
         private string result;
 
-        public async Task<string> CheckUseCase()
+        public string CheckUseCase()
         {
-            await Task.Delay(1);
+            result = "I am a standard UseCase template";
             return result;
         }
     }

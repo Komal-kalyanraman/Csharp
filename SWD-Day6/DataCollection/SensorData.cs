@@ -3,9 +3,10 @@ using Newtonsoft.Json;
 
 namespace SWD_Day6
 {
-    internal class SensorData : ISensorData
+    public class SensorData : ISensorData
     {
         Http api = new Http();
+        JsonObject obj = new JsonObject();
         string base_URL = "http://192.168.1.10:8080/shapi/";
 
         public class Parameters
@@ -15,6 +16,12 @@ namespace SWD_Day6
             public double power { get; set; }
             public string id { get; set; }
             public bool motionDetected { get; set; }
+        }
+
+        public string CurrentTime()
+        {
+            string TimeNow = DateTime.Now.ToString("HH");
+            return TimeNow;
         }
 
         public string SocketEnergy()
@@ -65,6 +72,20 @@ namespace SWD_Day6
             string JsonData = api.Get(base_URL + sensor_url).Result;
             string JsonDataNew = JsonData.Substring(1, JsonData.Length - 2);
             return JsonDataNew;
+        }
+
+        public string TurnOnSocket()
+        {
+            string result = api.Put(base_URL, obj.SwitchOnSocket).Result;
+            result = "Socket Turned ON";
+            return result;
+        }
+
+        public string TurnOffSocket()
+        {
+            string result = api.Put(base_URL, obj.SwitchOffSocket).Result;
+            result = "Socket Turned OFF";
+            return result;
         }
     }
 }

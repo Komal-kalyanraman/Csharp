@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace SWD_Day6
 {
-    internal interface ISensorData
+    public interface ISensorData
     {
+        string CurrentTime();
         string SocketEnergy();
         string SocketState();
         string ButtonState();
         string Motion();
+        string TurnOnSocket();
+        string TurnOffSocket();
 
     }
 }

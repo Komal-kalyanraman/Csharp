@@ -5,10 +5,15 @@ namespace SWD_Day6
 {
     public class GrannySleepMonitoring
     {
-        DataCollection sensorData = new DataCollection();
+        ISensorData sensorData;
         InputExtractor inputJson = new InputExtractor();
 
         private string result;
+
+        public GrannySleepMonitoring(ISensorData sensorData)
+        {
+            this.sensorData = sensorData;
+        }
 
         public string CheckUseCase()
         {

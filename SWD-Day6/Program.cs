@@ -4,10 +4,12 @@ using System.Collections.Generic;
 InputExtractor Finder = new InputExtractor();
 NotificationCenter Alert = new NotificationCenter();
 
-TimeBasedMonitoring TBM = new TimeBasedMonitoring();
-SocketEnergyMonitoring SEM = new SocketEnergyMonitoring();
-GrannySleepMonitoring GSM = new GrannySleepMonitoring();
-BoschConference BOCSE = new BoschConference();
+SensorData sensorData = new SensorData();
+
+TimeBasedMonitoring TBM = new TimeBasedMonitoring(sensorData);
+SocketEnergyMonitoring SEM = new SocketEnergyMonitoring(sensorData);
+GrannySleepMonitoring GSM = new GrannySleepMonitoring(sensorData);
+BoschConference BOCSE = new BoschConference(sensorData);
 
 Finder.ReadFile();
 string result = Finder.UseCase();
