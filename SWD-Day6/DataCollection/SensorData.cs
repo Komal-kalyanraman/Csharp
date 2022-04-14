@@ -28,7 +28,7 @@ namespace SWD_Day6
         {
             string JsonDataNew = ExtractJson("state?identifier=SocketEnergy");
             Parameters myDeserializedClass = JsonConvert.DeserializeObject<Parameters>(JsonDataNew);
-            string SocketEnergy = myDeserializedClass.power.ToString() + " watt";
+            string SocketEnergy = myDeserializedClass.power.ToString();
             return SocketEnergy;
         }
 

@@ -6,7 +6,6 @@ namespace SWD_Day6
     public class BoschConference
     {
         ISensorData sensorData;
-        InputExtractor inputJson = new InputExtractor();
 
         private string result;
         private string response;
@@ -16,12 +15,8 @@ namespace SWD_Day6
             this.sensorData = sensorData;
         }
 
-        public string CheckUseCase()
+        public string Run(string Timer)
         {
-            inputJson.ReadFile();
-
-            string Timer;
-            inputJson.InputData.TryGetValue("Timer", out Timer);
             int TimerInt = 0;
             Int32.TryParse(Timer, out TimerInt);
 

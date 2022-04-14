@@ -7,7 +7,7 @@ namespace SWD_Day6
         InputExtractor inputJson = new InputExtractor();
         private string result;
 
-        public string CheckUseCase()
+        public string Run()
         {
             result = "I am a standard UseCase template";
             return result;

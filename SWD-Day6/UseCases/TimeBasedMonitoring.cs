@@ -5,7 +5,6 @@ namespace SWD_Day6
     public class TimeBasedMonitoring
     {
         ISensorData sensorData;
-        InputExtractor inputJson = new InputExtractor();
         private string result;
 
         public TimeBasedMonitoring(ISensorData sensorData)
@@ -13,17 +12,11 @@ namespace SWD_Day6
             this.sensorData = sensorData;
         }
 
-        public string CheckUseCase()
+        public string Run(string StartTime, string EndTime)
         {            
-            inputJson.ReadFile();
-
-            string StartTime;
-            inputJson.InputData.TryGetValue("StartTime", out StartTime);
             int StartTimeInt = 0;
             Int32.TryParse(StartTime, out StartTimeInt);
 
-            string EndTime;
-            inputJson.InputData.TryGetValue("EndTime", out EndTime);
             int EndTimeInt = 0;
             Int32.TryParse(EndTime, out EndTimeInt);
 

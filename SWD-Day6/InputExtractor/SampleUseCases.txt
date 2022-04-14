@@ -1,8 +1,8 @@
 
-{"UseCase":"TimeBasedMonitoring", "SocketEnergyThreshold":0, "StartTime":1, "EndTime":22, "Timer":0}
+{"UseCase":"TimeBasedMonitoring", "SocketEnergyThreshold":0, "StartTime":1, "EndTime":23, "Timer":0}
 
 {"UseCase":"SocketEnergyMonitoring", "SocketEnergyThreshold":1, "StartTime":0, "EndTime":0, "Timer":5}
 
-{"UseCase":"GrannySleepMonitoring", "SocketEnergyThreshold":0, "StartTime":1, "EndTime":22, "Timer":0}
+{"UseCase":"GrannySleepMonitoring", "SocketEnergyThreshold":0, "StartTime":1, "EndTime":23, "Timer":0}
 
 {"UseCase":"BoschConference", "SocketEnergyThreshold":0, "StartTime":0, "EndTime":0, "Timer":1}

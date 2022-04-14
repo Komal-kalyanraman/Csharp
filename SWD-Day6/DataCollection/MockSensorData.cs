@@ -15,7 +15,7 @@ namespace SWD_Day6
         }
         public string ButtonState()
         {
-            string buttonState = "PRESSED";
+            string buttonState = "RELEASED";
             return buttonState;
         }
 
@@ -27,7 +27,7 @@ namespace SWD_Day6
 
         public string SocketEnergy()
         {
-            string threshold = "1 watt";
+            string threshold = "1";
             return threshold;
         }
 

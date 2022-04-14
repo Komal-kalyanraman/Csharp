@@ -15,6 +15,5 @@ namespace SWD_Day6
         string Motion();
         string TurnOnSocket();
         string TurnOffSocket();
-
     }
 }

@@ -1,1 +1,1 @@
-{"UseCase":"BoschConference", "SocketEnergyThreshold":0, "StartTime":0, "EndTime":0, "Timer":1}
+{"UseCase":"GrannySleepMonitoring", "SocketEnergyThreshold":0, "StartTime":1, "EndTime":20, "Timer":0}

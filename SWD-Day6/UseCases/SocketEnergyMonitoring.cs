@@ -6,7 +6,6 @@ namespace SWD_Day6
     public class SocketEnergyMonitoring
     {
         ISensorData sensorData;
-        InputExtractor inputJson = new InputExtractor();
         private string result;
 
         public SocketEnergyMonitoring(ISensorData sensorData)
@@ -14,17 +13,11 @@ namespace SWD_Day6
             this.sensorData = sensorData;
         }
 
-        public string CheckUseCase()
+        public string Run(string Timer, string SocketEnergyThreshold)
         {
-            inputJson.ReadFile();
-
-            string SocketEnergyThreshold;
-            inputJson.InputData.TryGetValue("SocketEnergyThreshold", out SocketEnergyThreshold);
             int SocketEnergyThresholdInt = 0;
             Int32.TryParse(SocketEnergyThreshold, out SocketEnergyThresholdInt);
 
-            string Timer;
-            inputJson.InputData.TryGetValue("Timer", out Timer);
             int TimerInt = 0;
             Int32.TryParse(Timer, out TimerInt);
 
@@ -36,6 +29,7 @@ namespace SWD_Day6
             if(SocketEnergyInt > SocketEnergyThresholdInt)
             {
                 result = sensorData.TurnOffSocket();
+                result = "Socket power crossed threshold";
                 Task.Delay(TimerInt*60*1000).Wait();
             }
             else
