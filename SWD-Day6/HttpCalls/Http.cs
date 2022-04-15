@@ -31,12 +31,10 @@ namespace SWD_Day6
             {
                 case "GET":
                     retval = await client.GetStringAsync(url);
-                    //ExtractJsonData(retval);
                     break;
 
                 case "PUT":
                     response = await client.PutAsync(url, content);
-                    //retval = await response.Content.ReadAsStringAsync();
                     break;
 
                 default:

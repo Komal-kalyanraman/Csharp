@@ -1,1 +1,1 @@
-{"UseCase":"GrannySleepMonitoring", "SocketEnergyThreshold":0, "StartTime":1, "EndTime":20, "Timer":0}
+{"UseCase":"GrannySleepMonitoring", "SocketEnergyThreshold":0, "StartTime":1, "EndTime":23, "Timer":0}

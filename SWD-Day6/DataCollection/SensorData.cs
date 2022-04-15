@@ -67,7 +67,7 @@ namespace SWD_Day6
             return Motion;
         }
 
-        public virtual string ExtractJson(string sensor_url)
+        public string ExtractJson(string sensor_url)
         {
             string JsonData = api.Get(base_URL + sensor_url).Result;
             string JsonDataNew = JsonData.Substring(1, JsonData.Length - 2);

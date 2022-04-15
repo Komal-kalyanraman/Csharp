@@ -20,22 +20,14 @@ namespace SWD_Day6
 
         public void ReadFile()
         {
-            try
-            {
-                string readText = File.ReadAllText(path); 
-                Parameters myDeserializedClass = JsonConvert.DeserializeObject<Parameters>(readText);
+            string readText = File.ReadAllText(path); 
+            Parameters myDeserializedClass = JsonConvert.DeserializeObject<Parameters>(readText);
 
-                InputData.Add("UseCase", myDeserializedClass.UseCase.ToString());
-                InputData.Add("SocketEnergyThreshold", myDeserializedClass.SocketEnergyThreshold.ToString());
-                InputData.Add("StartTime", myDeserializedClass.StartTime.ToString());
-                InputData.Add("EndTime", myDeserializedClass.EndTime.ToString());
-                InputData.Add("Timer", myDeserializedClass.Timer.ToString());
-            }
-
-            catch (Exception e)
-            {
-                Console.WriteLine("{0} Exception caught.", e);
-            }
+            InputData.Add("UseCase", myDeserializedClass.UseCase.ToString());
+            InputData.Add("SocketEnergyThreshold", myDeserializedClass.SocketEnergyThreshold.ToString());
+            InputData.Add("StartTime", myDeserializedClass.StartTime.ToString());
+            InputData.Add("EndTime", myDeserializedClass.EndTime.ToString());
+            InputData.Add("Timer", myDeserializedClass.Timer.ToString());
         }
 
         public string UseCase()
