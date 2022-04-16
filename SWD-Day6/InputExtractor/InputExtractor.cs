@@ -5,7 +5,8 @@ namespace SWD_Day6
 {
     public class InputExtractor
     {
-        string path = "/home/phoenix/Desktop/Csharp/SWD-Day6/InputExtractor/UseCase.txt";
+        //string path = "/home/phoenix/Desktop/Csharp/SWD-Day6/InputExtractor/UseCase.txt";
+        string path = "/home/pi/Desktop/SWD-Day6/InputExtractor/UseCase.txt";
         public Dictionary<string, string> InputData = new Dictionary<string, string>();
         private string result;
         

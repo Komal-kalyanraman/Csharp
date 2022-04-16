@@ -7,7 +7,8 @@ namespace SWD_Day6
     {
         Http api = new Http();
         JsonObject obj = new JsonObject();
-        string base_URL = "http://192.168.1.10:8080/shapi/";
+        //string base_URL = "http://192.168.1.10:8080/shapi/";
+        string base_URL = "http://localhost:8080/shapi/";
 
         public class Parameters
         {
